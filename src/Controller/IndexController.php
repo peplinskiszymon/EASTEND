@@ -34,7 +34,7 @@ class IndexController extends AbstractController
             $nazwa_exclude = $form->get('nazwa_exclude')->getData();
 
             //Method: findByKategoria
-            //Created in: KategoriaRepository
+            //Created in: ProduktRepository
             //Method show produkt according received values and send result to $produkty
             $produkty = $em->getRepository(Produkt::class)->findByKategoria($nazwa_included, $nazwa_exclude);
         }
