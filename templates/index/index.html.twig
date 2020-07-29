@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produkty{% endblock %}
+
+{% block body %}
+
+    {# Form: KategoriaType 
+        Createed View In: IndexController
+    #}
+    <div class="container">
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+            <button class="btn btn-lg btn-primary mt-3" type="submit">
+                Szukaj
+            </button>
+        {{ form_end(form) }}
+    </div>
+
+    {#
+        List of: Produkt
+        Default: Show All
+    #}
+    <h1>Produkty</h1>
+
+    {% for produkt in produkty %}
+        Produkt: {{produkt.getNazwa}}
+        <ul>
+            {% for kategoria in produkt.getKategoria %}
+            <li>
+            Kategoria: {{ kategoria.nazwa}}
+            </li>
+            {% endfor %}
+        </ul>
+    <br/>
+    {% endfor %}
+
+
+{% endblock %}
